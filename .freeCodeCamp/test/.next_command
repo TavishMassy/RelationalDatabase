@@ -18,3 +18,4 @@ type if
 type then
 type bash
 type psql
+type ./five.sh
