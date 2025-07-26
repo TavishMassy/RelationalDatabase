@@ -7,3 +7,6 @@ rm students_test.csv
 rm courses_test.csv
 s
 ls --color=auto
+--help
+--help pg_dump
+pg_dump --help
