@@ -11,3 +11,8 @@ ls --color=auto
 --help pg_dump
 pg_dump --help
 pg_dump --clean --create --inserts --username=freecodecamp students > students.sql
+git status
+git init
+git remote add origin https://github.com/TavishMassy/RelationalDatabase.git
+git remote set-url origin https://github.com/TavishMassy/RelationalDatabase.git
+git add .
