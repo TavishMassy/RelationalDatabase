@@ -85,3 +85,8 @@ chmod +x student_info.sh
 ./student_info.sh
 __vsc_prompt_cmd_original
 ./student_info.sh
+git status
+git init
+git remote add origin https://github.com/TavishMassy/RelationalDatabase.git
+git remote set-url origin https://github.com/TavishMassy/RelationalDatabase.git
+git add .
