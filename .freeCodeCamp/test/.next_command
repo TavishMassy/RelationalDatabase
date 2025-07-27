@@ -61,3 +61,8 @@ clear
 ./queries.sh
 ./queries.sh
 ./queries.sh
+git ststus
+git init
+git remote add origin https://github.com/TavishMassy/RelationalDatabase.git
+git remote set-url origin https://github.com/TavishMassy/RelationalDatabase.git
+git add .
