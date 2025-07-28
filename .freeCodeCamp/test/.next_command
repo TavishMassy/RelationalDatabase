@@ -59,3 +59,5 @@ grep --color 'dog[a-z]*|woof[a-z]*'
 ./translate.sh kitty_ipsum_2.txt
 ./translate.sh kitty_ipsum_1.txt >> doggy_ipsum_1.txt
 cat doggy_ipsum_1.txt
+diff kitty_ipsum_1 doggy_ipsum_1
+diff kitty_ipsum_1.txt doggy_ipsum_1.txt
