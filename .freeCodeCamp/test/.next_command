@@ -66,3 +66,8 @@ diff --color kitty_ipsum_1.txt doggy_ipsum_1.txt
 ./translate.sh kitty_ipsum_2.txt >> doggy_ipsum_2.txt
 cat doggy_ipsum_2.txt
 diff --color kitty_ipsum_2.txt doggy_ipsum_2.txt
+git status
+git init
+git remote add origin https://github.com/TavishMassy/RelationalDatabase.git
+git remote set-url origin https://github.com/TavishMassy/RelationalDatabase.git
+git add .
