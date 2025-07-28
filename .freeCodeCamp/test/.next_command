@@ -61,3 +61,4 @@ grep --color 'dog[a-z]*|woof[a-z]*'
 cat doggy_ipsum_1.txt
 diff kitty_ipsum_1 doggy_ipsum_1
 diff kitty_ipsum_1.txt doggy_ipsum_1.txt
+man diff
