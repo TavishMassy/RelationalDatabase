@@ -1,6 +1,7 @@
-I built this Kitty Ipsum Translator project as part of freeCodeCamp’s relational database curriculum.
-Used my local PostgreSQL setup on VS Code for development.
-Added a quirky translator using Bash, where feline phrases were swapped out for canine ones inside translate.sh
+I built this Kitty Ipsum Translator project as part of freeCodeCamp’s relational 
+database curriculum. Used dev container on docker setup on VS Code for development. 
+Added a quirky translator using Bash, where feline phrases were swapped out for 
+canine ones inside translate.sh
 
 Learned about:
 1.diff for comparing outputs
