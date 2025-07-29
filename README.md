@@ -1,3 +1,5 @@
+# Kitty Ipsum Translator
+
 I built this Kitty Ipsum Translator project as part of freeCodeCamp’s relational 
 database curriculum. Used dev container on docker setup on VS Code for development. 
 Added a quirky translator using Bash, where feline phrases were swapped out for 
