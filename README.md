@@ -12,5 +12,5 @@ Learned about:
 6. wc for line and word counts
 7. < for input redirection
 
-You can check out the full walkthrough on freeCodeCamp’s official course page.
+🔗 Explore the full tutorial on freeCodeCamp’s official course page.
 https://www.freecodecamp.org/learn/relational-database/learn-advanced-bash-by-building-a-kitty-ipsum-translator/build-a-kitty-ipsum-translator
