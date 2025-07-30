@@ -2,7 +2,7 @@
 PSQL="psql -X --username=freecodecamp --dbname=salon --tuples-only -c"
 
 MAIN_MENU() {
-  echo -e "\n~~~~~ MY SALON ~~~~~\n"
+  echo -e "\n~~~~~ Salon Appointment Scheduler ~~~~~\n"
   echo -e "Welcome to My Salon."
   SERVICES=$($PSQL "SELECT service_id, name FROM services ORDER BY service_id")
   echo "$SERVICES" | while read SERVICE_ID BAR NAME
