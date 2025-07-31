@@ -8,7 +8,7 @@ This Bash script allows users to book appointments at a salon via a PostgreSQL d
 - Schedule appointment time
 - Automatically adds new customers to the database
 
-##  Technologies
+##  Tech Stack
 - Bash scripting
 - PostgreSQL
 - Docker
