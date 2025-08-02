@@ -6,15 +6,13 @@ MAIN() {
   if [[ -z $1 ]]
   then
     echo -e "Please provide an element as an argument."
+  elif [[ $1 =~ ^[0-9]+$ ]]
+  then
+    ELEMENT=$($PSQL "SELECT atomic_number FROM elements WHERE atomic_number=$1")
+    CHECK_N_CONTINUE $ELEMENT
   else
-    if [[ ($1 =~ ^[0-9]+$) ]]
-    then
-      ELEMENT=$($PSQL "SELECT * FROM elements WHERE atomic_number=$1")
-      CHECK_N_CONTINUE $ELEMENT
-    else
-      ELEMENT=$($PSQL "SELECT atomic_number FROM elements WHERE symbol='$1' OR name='$1'")
-      CHECK_N_CONTINUE $ELEMENT
-    fi
+    ELEMENT=$($PSQL "SELECT atomic_number FROM elements WHERE symbol='$1' OR name='$1'")
+    CHECK_N_CONTINUE $ELEMENT
   fi
 }
 
