@@ -10,21 +10,21 @@ MAIN() {
     if [[ ($1 =~ ^[0-9]+$) ]]
     then
       ELEMENT=$($PSQL "SELECT * FROM elements WHERE atomic_number=$1")
-      if [[ -z $ELEMENT ]]
-      then
-        echo "I could not find that element in the database."
-      else
-        ELEMENT_INFO $ELEMENT
-      fi
+      CHECK_N_CONTINUE $ELEMENT
     else
       ELEMENT=$($PSQL "SELECT atomic_number FROM elements WHERE symbol='$1' OR name='$1'")
-      if [[ -z $ELEMENT ]]
-      then  
-        echo "I could not find that element in the database."
-      else
-        ELEMENT_INFO $ELEMENT
-      fi
+      CHECK_N_CONTINUE $ELEMENT
     fi
+  fi
+}
+
+
+CHECK_N_CONTINUE() {
+  if [[ -z $1 ]]
+  then
+    echo "I could not find that element in the database."
+  else
+    ELEMENT_INFO $1
   fi
 }
 
