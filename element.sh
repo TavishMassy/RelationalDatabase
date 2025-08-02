@@ -11,7 +11,7 @@ else
     echo "$PROPERTIES" | while read ATOMIC_NO BAR TYPE_ID BAR ATOMIC_MASS BAR MELT_POINT_CELSIUS BAR BOIL_POINT_CELSIUS
     do
       TYPE=$($PSQL "SELECT type FROM types WHERE type_id=$TYPE_ID")
-      echo -e "\nThe element with atomic number 1 is Hydrogen (H). It's a nonmetal, with a mass of 1.008 amu. Hydrogen has a melting point of -259.1 celsius and a boiling point of -252.9 celsius."
+      echo -e "\nThe element with atomic number $ATOMIC_NO is $NAME ($SYMBOL). It's a $TYPE, with a mass of $ATOMIC_MASS amu. $NAME has a melting point of $MELT_POINT_CELSIUS celsius and a boiling point of $BOIL_POINT_CELSIUS celsius."
     done
   done
 fi
