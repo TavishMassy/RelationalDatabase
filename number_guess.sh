@@ -1,5 +1,5 @@
 #!/bin/bash
-PSQL="psql --username=freecodecamp --dbname=number_guess ----tuples-only -c"
+PSQL="psql --username=freecodecamp --dbname=number_guess --tuples-only -c"
 GUESSES=0
 RANDOM_NUM=$((1 + RANDOM % 100))
 
