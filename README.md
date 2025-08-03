@@ -1,18 +1,18 @@
 # Number Guessing Game
 
-🛠️ What I Built
+## 🛠️ What I Built
 - A terminal-based number guessing game using Bash and PostgreSQL
 - Integrated with a relational database to track user stats
 - Ran on a virtual Linux setup via Docker
 
-⚙️ Tools & Tech Stack
+## ⚙️ Tools & Tech Stack
 - Bash scripting: Game logic and user interaction
 - PostgreSQL: Storing usernames, games played, and best scores
 - Docker Engine: For isolated Linux environment
 - VS Code + Dev Containers: Dev workflow setup
 - Git: Version control and project submission
 
-📌 Key Features
+## 📌 Key Features
 - Prompts user for a username and checks if they’ve played before
 - Stores new users in the users table
 - Greets returning players with personal game stats
