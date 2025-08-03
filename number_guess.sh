@@ -46,6 +46,7 @@ GAME_MAIN() {
 }
 
 SAVE_GAME_INFO() {
+  GAMES_PLAYED=$($PSQL "SELECT games_played FROM users WHERE username='$USERNAME'")
   let GAMES_PLAYED+=1
   BEST_GAME=$($PSQL "SELECT best_game FROM users WHERE username='$USERNAME'")
   if [[ $GUESSES < $BEST_GAME ]]
