@@ -20,7 +20,6 @@ MAIN() {
 }
 
 GAME_MAIN() {
-  echo "Guess the secret number between 1 and 1000:"
   read GUESS_NUM
   if [[ $GUESS_NUM =~ ^[0-9]+$ ]]
   then
@@ -37,7 +36,7 @@ GAME_MAIN() {
     else
       let GUESSES+=1
       echo "You guessed it in $GUESSES tries. The secret number was $RANDOM_NUM."
-      SAVE_GAME_INFO $GUSSES
+      SAVE_GAME_INFO
     fi
   else
     echo "That is not an integer, guess again:"
@@ -59,4 +58,5 @@ SAVE_GAME_INFO() {
 
 
 MAIN
+echo "Guess the secret number between 1 and 1000:"
 GAME_MAIN  
