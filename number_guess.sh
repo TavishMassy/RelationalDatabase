@@ -3,7 +3,7 @@ PSQL="psql --username=freecodecamp --dbname=number_guess --tuples-only -c"
 GUESSES=0
 RANDOM_NUM=$((1 + RANDOM % 1000))
 
-USER_HISTORY() {
+MAIN() {
   echo "Enter your username:"
   read USERNAME
   USER_INFO=$($PSQL "SELECT * FROM users WHERE username='$USERNAME'")
@@ -58,5 +58,5 @@ SAVE_GAME_INFO() {
 }
 
 
-USER_HISTORY
+MAIN
 GAME_MAIN  
