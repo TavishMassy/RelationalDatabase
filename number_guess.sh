@@ -26,23 +26,35 @@ GAME_MAIN() {
   then
     if [[ $GUESS_NUM < $RANDOM_NUM ]]
     then
-      $GUESSES += 1
+      let GUESSES+=1
       echo "It's lower than that, guess again:"
+      GAME_MAIN
     elif [[ $GUESS_NUM > $RANDOM_NUM ]]
     then
-      $GUESSES += 1
+      let GUESSES+=1
       echo "It's higher than that, guess again:"
+      GAME_MAIN
     else
-      $GUESSES += 1
+      let GUESSES+=1
       You guessed it in $GUESSES tries. The secret number was $RANDOM_NUM.
+      SAVE_GAME_INFO $GUSSES
     fi
   else
     echo "That is not an integer, guess again:"
   fi
 }
 
-MAIN() {
-  USER_HISTORY
+SAVE_GAME_INFO() {
+  let GAMES_PLAYED+=1
+  $BEST_GAME=$($PSQL "SELECT best_game FROM users WHERE username='$USERNAME'")
+  if [[ $1 < $BEST_GAME ]]
+  then
+    INSERT_IN_USERS=$($PSQL "INSERT INTO users(games_played, best_game) VALUES($GAMES_PLAYED, $1) WHERE username='$USERNAME'")
+  else
+    INSERT_IN_USERS=$($PSQL "INSERT INTO users(games_played) VALUES($GAMES_PLAYED) WHERE username='$USERNAME'")
+  fi
 }
 
-MAIN
+
+USER_HISTORY
+GAME_MAIN  
