@@ -1,7 +1,7 @@
 #!/bin/bash
 PSQL="psql --username=freecodecamp --dbname=number_guess --tuples-only -c"
 GUESSES=0
-RANDOM_NUM=$((1 + RANDOM % 100))
+RANDOM_NUM=$((1 + RANDOM % 1000))
 
 USER_HISTORY() {
   echo "Enter your username:"
@@ -20,7 +20,7 @@ USER_HISTORY() {
 }
 
 GAME_MAIN() {
-  echo "Guess the secret number between 1 and 100:"
+  echo "Guess the secret number between 1 and 1000:"
   read GUESS_NUM
   if [[ $GUESS_NUM =~ ^[0-9]+$ ]]
   then
