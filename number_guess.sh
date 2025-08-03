@@ -47,7 +47,7 @@ GAME_MAIN() {
 
 SAVE_GAME_INFO() {
   let GAMES_PLAYED+=1
-  $BEST_GAME=$($PSQL "SELECT best_game FROM users WHERE username='$USERNAME'")
+  BEST_GAME=$($PSQL "SELECT best_game FROM users WHERE username='$USERNAME'")
   if [[ $1 < $BEST_GAME ]]
   then
     INSERT_IN_USERS=$($PSQL "INSERT INTO users(games_played, best_game) VALUES($GAMES_PLAYED, $1) WHERE username='$USERNAME'")
