@@ -9,14 +9,18 @@ MAIN() {
   USER_INFO=$($PSQL "SELECT * FROM users WHERE username='$USERNAME'")
   if [[ -z $USER_INFO ]]
   then
-    echo "Welcome, $USERNAME! It looks like this is your first time here."
     CREAT_NEW_USER=$($PSQL "INSERT INTO users(username) VALUES('$USERNAME')")
+    echo "Welcome, $USERNAME! It looks like this is your first time here."
   else
-    echo "$USER_INFO" | while read USER_ID BAR USERNAME BAR GAMES_PLAYED BAR BEST_GAME
+    echo "$USER_INFO" | while IFS="|" read USER_ID USERNAME GAMES_PLAYED BEST_GAME
     do
-      echo "Welcome back, $USERNAME! You have played $GAMES_PLAYED games, and your best game took $BEST_GAME guesses."
+      USERNAME=$(echo "$USERNAME" | xargs)
+      GAMES_PLAYED=$(echo "$GAMES_PLAYED" | xargs)
+      BEST_GAME=$(echo "$BEST_GAME" | xargs)
+      echo "Welcome back, <username>! You have played <games_played> games, and your best game took <best_game> guesses."
     done
   fi
+  echo "Guess the secret number between 1 and 1000:"
 }
 
 GAME_MAIN() {
@@ -35,8 +39,8 @@ GAME_MAIN() {
       GAME_MAIN
     else
       let GUESSES+=1
-      echo "You guessed it in $GUESSES tries. The secret number was $RANDOM_NUM."
       SAVE_GAME_INFO
+      echo "You guessed it in $GUESSES tries. The secret number was $RANDOM_NUM."
     fi
   else
     echo "That is not an integer, guess again:"
@@ -48,7 +52,7 @@ SAVE_GAME_INFO() {
   GAMES_PLAYED=$($PSQL "SELECT games_played FROM users WHERE username='$USERNAME'")
   let GAMES_PLAYED+=1
   BEST_GAME=$($PSQL "SELECT best_game FROM users WHERE username='$USERNAME'")
-  if [[ $GUESSES < $BEST_GAME ]]
+  if [[ $GUESSES -lt $BEST_GAME ]]
   then
     INSERT_IN_USERS=$($PSQL "UPDATE users SET games_played = $GAMES_PLAYED, best_game = $GUESSES WHERE username = '$USERNAME'")
   else
@@ -58,5 +62,4 @@ SAVE_GAME_INFO() {
 
 
 MAIN
-echo "Guess the secret number between 1 and 1000:"
 GAME_MAIN  
