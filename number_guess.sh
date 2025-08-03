@@ -12,7 +12,7 @@ USER_HISTORY() {
     echo "Welcome, $USERNAME! It looks like this is your first time here."
     CREAT_NEW_USER=$($PSQL "INSERT INTO users(username) VALUES('$USERNAME')")
   else
-    echo "$USER_INFO" | while read UID BAR USERNAME BAR GAMES_PLAYED BAR BEST_GAME
+    echo "$USER_INFO" | while read USER_ID BAR USERNAME BAR GAMES_PLAYED BAR BEST_GAME
     do
       echo "Welcome back, $USERNAME! You have played $GAMES_PLAYED games, and your best game took $BEST_GAME guesses."
     done
@@ -20,7 +20,7 @@ USER_HISTORY() {
 }
 
 GAME_MAIN() {
-  echo "Guess the secret number between 1 and 1000:"
+  echo "Guess the secret number between 1 and 100:"
   read GUESS_NUM
   if [[ $GUESS_NUM =~ ^[0-9]+$ ]]
   then
@@ -36,7 +36,7 @@ GAME_MAIN() {
       GAME_MAIN
     else
       let GUESSES+=1
-      You guessed it in $GUESSES tries. The secret number was $RANDOM_NUM.
+      echo "You guessed it in $GUESSES tries. The secret number was $RANDOM_NUM."
       SAVE_GAME_INFO $GUSSES
     fi
   else
