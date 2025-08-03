@@ -41,7 +41,7 @@ GAME_MAIN() {
     else
       let GUESSES+=1
       SAVE_GAME_INFO
-      echo "You guessed it in $GUESSES tries. The secret number was $RANDOM_NUM."
+      echo "You guessed it in $GUESSES tries. The secret number was $RANDOM_NUM. Nice job!"
     fi
   else
     echo "That is not an integer, guess again:"
