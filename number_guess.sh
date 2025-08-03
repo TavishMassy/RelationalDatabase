@@ -1,5 +1,5 @@
 #!/bin/bash
-PSQL="psql --username=freecodecamp --dbname=number_guess -t --no-align -c"
+PSQL="psql --username=freecodecamp --dbname=number_guess ----tuples-only -c"
 GUESSES=0
 RANDOM_NUM=$((1 + RANDOM % 100))
 
@@ -41,6 +41,7 @@ GAME_MAIN() {
     fi
   else
     echo "That is not an integer, guess again:"
+    GAME_MAIN
   fi
 }
 
