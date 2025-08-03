@@ -21,6 +21,7 @@ MAIN() {
     done
   fi
   echo "Guess the secret number between 1 and 1000:"
+  GAME_MAIN 
 }
 
 GAME_MAIN() {
@@ -61,5 +62,4 @@ SAVE_GAME_INFO() {
 }
 
 
-MAIN
-GAME_MAIN  
+MAIN 
