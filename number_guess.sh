@@ -17,7 +17,7 @@ MAIN() {
       USERNAME=$(echo "$USERNAME" | xargs)
       GAMES_PLAYED=$(echo "$GAMES_PLAYED" | xargs)
       BEST_GAME=$(echo "$BEST_GAME" | xargs)
-      echo "Welcome back, <username>! You have played <games_played> games, and your best game took <best_game> guesses."
+      echo "Welcome back, $USERNAME! You have played $GAMES_PLAYED games, and your best game took $BEST_GAME guesses."
     done
   fi
   echo "Guess the secret number between 1 and 1000:"
