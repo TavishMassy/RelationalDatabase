@@ -24,12 +24,12 @@ GAME_MAIN() {
   read GUESS_NUM
   if [[ $GUESS_NUM =~ ^[0-9]+$ ]]
   then
-    if [[ $GUESS_NUM < $RANDOM_NUM ]]
+    if [[ $GUESS_NUM -lt $RANDOM_NUM ]]
     then
       let GUESSES+=1
       echo "It's lower than that, guess again:"
       GAME_MAIN
-    elif [[ $GUESS_NUM > $RANDOM_NUM ]]
+    elif [[ $GUESS_NUM -gt $RANDOM_NUM ]]
     then
       let GUESSES+=1
       echo "It's higher than that, guess again:"
