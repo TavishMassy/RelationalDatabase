@@ -50,9 +50,9 @@ SAVE_GAME_INFO() {
   BEST_GAME=$($PSQL "SELECT best_game FROM users WHERE username='$USERNAME'")
   if [[ $GUESSES < $BEST_GAME ]]
   then
-    INSERT_IN_USERS=$($PSQL "INSERT INTO users(games_played, best_game) VALUES($GAMES_PLAYED, $GUESSES) WHERE username='$USERNAME'")
+    INSERT_IN_USERS=$($PSQL "UPDATE users SET games_played = $GAMES_PLAYED, best_game = $GUESSES WHERE username = '$USERNAME'")
   else
-    INSERT_IN_USERS=$($PSQL "INSERT INTO users(games_played) VALUES($GAMES_PLAYED) WHERE username='$USERNAME'")
+    INSERT_IN_USERS=$($PSQL "UPDATE users SET games_played = $GAMES_PLAYED WHERE username = '$USERNAME'")
   fi
 }
 
